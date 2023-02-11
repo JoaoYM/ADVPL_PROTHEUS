@@ -65,7 +65,7 @@ User Function ADVPL_To_EXCEL()
 			// Query que buscará as tabelas e campos para gerar o relatório (VENDA DIRETA)
 			BEGINSQL ALIAS "cAliasTemporario_3"
 				SELECT
-				 IIF(TableName_Vendas.Fieldname_Filial='0101', 'FARMACIA', 'INDUSTRIA') AS c_Filial, TableName_Vendas.Fieldname_Cliente, TableName_Vendas.Fieldname_DtEntregPrevist, TableName_Vendas.Fieldname_DtRecebimento, TableName_Vendas.Fieldname_ValorFrete, TableName_Vendas.Fieldname_Observacao, TableName_Vendas.Fieldname_Motivo, TableName_Vendas.Fieldname_LojaCliente, TableName_Vendas.Fieldname_N_Nota, TableName_Vendas.Fieldname_NomeCliente,
+				 IIF(TableName_Vendas.Fieldname_Filial='0000', 'FARMACIA', 'INDUSTRIA') AS c_Filial, TableName_Vendas.Fieldname_Cliente, TableName_Vendas.Fieldname_DtEntregPrevist, TableName_Vendas.Fieldname_DtRecebimento, TableName_Vendas.Fieldname_ValorFrete, TableName_Vendas.Fieldname_Observacao, TableName_Vendas.Fieldname_Motivo, TableName_Vendas.Fieldname_LojaCliente, TableName_Vendas.Fieldname_N_Nota, TableName_Vendas.Fieldname_NomeCliente,
 				
 				 ISNULL(CONVERT(VARCHAR(8000),CONVERT(BINARY(8000),TableName_Vendas.Fieldname_Observacao)),"") AS Fieldname_Observacao,
 				 ISNULL(CONVERT(VARCHAR(8000),CONVERT(BINARY(8000),TableName_Vendas.Fieldname_Motivo)),"") AS Fieldname_Motivo
@@ -93,7 +93,7 @@ User Function ADVPL_To_EXCEL()
 			// Query que buscará as tabelas e campos para gerar o relatório (PEDIDO DE VENDA)
 			BEGINSQL ALIAS "cAliasTemporario_2"
 				SELECT
-				 IIF(TableName_Pedidos.Fieldname_Filial='0101', 'FARMACIA', 'INDUSTRIA') AS c_Filial, TableName_Vendas.Fieldname_Cliente, TableName_Vendas.Fieldname_DtEntregPrevist, TableName_Vendas.Fieldname_DtRecebimento, TableName_Vendas.Fieldname_ValorFrete, TableName_Vendas.Fieldname_Observacao, TableName_Vendas.Fieldname_Motivo, TableName_Vendas.Fieldname_LojaCliente, TableName_Vendas.Fieldname_N_Nota, TableName_Vendas.Fieldname_NomeCliente,
+				 IIF(TableName_Pedidos.Fieldname_Filial='0000', 'FARMACIA', 'INDUSTRIA') AS c_Filial, TableName_Vendas.Fieldname_Cliente, TableName_Vendas.Fieldname_DtEntregPrevist, TableName_Vendas.Fieldname_DtRecebimento, TableName_Vendas.Fieldname_ValorFrete, TableName_Vendas.Fieldname_Observacao, TableName_Vendas.Fieldname_Motivo, TableName_Vendas.Fieldname_LojaCliente, TableName_Vendas.Fieldname_N_Nota, TableName_Vendas.Fieldname_NomeCliente,
 				
 				 ISNULL(CONVERT(VARCHAR(8000),CONVERT(BINARY(8000),TableName_Pedidos.Fieldname_Observacao)),"") AS Observacao,
 				 ISNULL(CONVERT(VARCHAR(8000),CONVERT(BINARY(8000),TableName_Pedidos.Fieldname_Motivo)),"") AS Motivo
@@ -195,7 +195,7 @@ return .T. // end Static Function
 		 ALLTRIM(cAliasTemporario_2->Fieldname_Observacao), ALLTRIM(cAliasTemporario_2->Fieldname_Motivo)})
 		 cAliasTemporario_2->(dbSkip())
    
-   //				 IIF(TableName_Pedidos.Fieldname_Filial='0101', 'FARMACIA', 'INDUSTRIA') AS c_Filial, TableName_Vendas.Fieldname_Cliente, TableName_Vendas.Fieldname_DtEntregPrevist, TableName_Vendas.Fieldname_DtRecebimento, TableName_Vendas.Fieldname_ValorFrete, TableName_Vendas.Fieldname_Observacao, TableName_Vendas.Fieldname_Motivo, TableName_Vendas.Fieldname_LojaCliente, TableName_Vendas.Fieldname_N_Nota, TableName_Vendas.Fieldname_NomeCliente,
+   //				 IIF(TableName_Pedidos.Fieldname_Filial='0000', 'FARMACIA', 'INDUSTRIA') AS c_Filial, TableName_Vendas.Fieldname_Cliente, TableName_Vendas.Fieldname_DtEntregPrevist, TableName_Vendas.Fieldname_DtRecebimento, TableName_Vendas.Fieldname_ValorFrete, TableName_Vendas.Fieldname_Observacao, TableName_Vendas.Fieldname_Motivo, TableName_Vendas.Fieldname_LojaCliente, TableName_Vendas.Fieldname_N_Nota, TableName_Vendas.Fieldname_NomeCliente,
 
    
     EndDo
@@ -235,7 +235,7 @@ return .T. // end Static Function
 // Query que buscará as tabelas e campos para gerar o relatório (VENDA DIRETA)
   BEGINSQL ALIAS "cAliasTemporario_"
     SELECT
-     IIF(TableName_Notas.FieldName_Notas_FILIAL='0101','FARMACIA','INDUSTRIA') AS FILIAL,TableName_Notas.FieldName_Notas_DOC, TableName_Notas.FieldName_Notas_SERIE, TableName_Notas.FieldName_Notas_EMISSAO, TableName_Notas.FieldName_Notas_FORNECE, TableName_Notas.FieldName_Notas_LOJA, TableName_DadosCliente.FieldName_DadosCliente_NOME, TableName_Notas.FieldName_Notas_VALBRUT, TableName_Notas.FieldName_Notas_FRETE, (TableName_Notas.FieldName_Notas_VALBRUT - TableName_Notas.FieldName_Notas_FRETE) AS VALLIQ
+     IIF(TableName_Notas.FieldName_Notas_FILIAL='0000','FARMACIA','INDUSTRIA') AS FILIAL,TableName_Notas.FieldName_Notas_DOC, TableName_Notas.FieldName_Notas_SERIE, TableName_Notas.FieldName_Notas_EMISSAO, TableName_Notas.FieldName_Notas_FORNECE, TableName_Notas.FieldName_Notas_LOJA, TableName_DadosCliente.FieldName_DadosCliente_NOME, TableName_Notas.FieldName_Notas_VALBRUT, TableName_Notas.FieldName_Notas_FRETE, (TableName_Notas.FieldName_Notas_VALBRUT - TableName_Notas.FieldName_Notas_FRETE) AS VALLIQ
     FROM
       %table:TableName_Notas% AS TableName_Notas
       INNER JOIN %table:TableName_DadosCliente% AS TableName_DadosCliente ON (TableName_Notas.FieldName_Notas_FORNECE = TableName_DadosCliente.FieldName_DadosCliente_COD AND TableName_Notas.FieldName_Notas_LOJA = TableName_DadosCliente.FieldName_DadosCliente_LOJA AND TableName_DadosCliente.D_E_L_E_T_ <> '*')

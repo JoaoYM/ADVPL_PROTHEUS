@@ -6,7 +6,7 @@ Função que executa uma BAT que realiza a inicialização do programa Superviso
 A BAT precisa estar salva dentro da pasta TOTVS na unidade C do computador. 
 Essa BAT é util para que o usuário possa executar aplicações com permissão de Admin.
 */
-User Function RDEST009()
+User Function Bat_Integração()
 
 cPasta   := "C:\TOTVS\"
 cArquivo := "RunasF.bat"
